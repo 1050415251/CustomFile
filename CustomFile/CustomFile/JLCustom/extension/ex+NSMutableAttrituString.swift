@@ -20,7 +20,7 @@ extension NSMutableAttributedString {
     }
 
 
-    func fitWidth(padding: CGFloat,height:CGFloat,font: UIFont) -> CGFloat {
+    func fitWidth(padding: CGFloat,height:CGFloat) -> CGFloat {
 
         let bounds = self.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height),
                                        options: NSStringDrawingOptions.usesLineFragmentOrigin,
