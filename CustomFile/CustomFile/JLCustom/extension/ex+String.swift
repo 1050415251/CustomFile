@@ -78,4 +78,13 @@ extension String {
         return ceil(bounds.height + padding * 2)
     }
 
+    func fitWidth(padding: CGFloat,height: CGFloat,font: UIFont) -> CGFloat {
+
+        let bounds = self.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height),
+                                       options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                                       attributes: [NSAttributedStringKey.font: font],
+                                       context: nil)
+        return  ceil(bounds.width + padding * 2)
+    }
+
 }

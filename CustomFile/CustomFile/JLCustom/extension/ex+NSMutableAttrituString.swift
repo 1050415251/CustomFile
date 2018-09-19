@@ -18,4 +18,14 @@ extension NSMutableAttributedString {
         return ceil(bounds.height + padding * 2)
 
     }
+
+
+    func fitWidth(padding: CGFloat,height:CGFloat,font: UIFont) -> CGFloat {
+
+        let bounds = self.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height),
+                                       options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                                       context: nil)
+        return ceil(bounds.width + padding * 2)
+
+    }
 }
