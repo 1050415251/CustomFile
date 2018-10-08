@@ -21,4 +21,14 @@ extension Double {
         return String(format: formatString, self)
     }
 
+
+    var intValue:Int! {
+        return Int(self) ?? 0
+    }
+
+    var int:Int? {
+        return Int(self)
+    }
+
+
 }

@@ -58,6 +58,7 @@
 		FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAEC2148EDBB0061CA3B /* NetTool.swift */; };
 		FD47AB082148EED00061CA3B /* NetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB062148EED00061CA3B /* NetConstants.swift */; };
 		FD47AB092148EED00061CA3B /* NetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB072148EED00061CA3B /* NetRequest.swift */; };
+		FD8D5CCD216B3CA9002BFFC5 /* GifUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D5CCC216B3CA9002BFFC5 /* GifUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +116,7 @@
 		FD47AAEC2148EDBB0061CA3B /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		FD47AB062148EED00061CA3B /* NetConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetConstants.swift; sourceTree = "<group>"; };
 		FD47AB072148EED00061CA3B /* NetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetRequest.swift; sourceTree = "<group>"; };
+		FD8D5CCC216B3CA9002BFFC5 /* GifUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */,
 				FD47AAE32148EDBB0061CA3B /* UIUtils.swift */,
 				FD47AADD2148EDBA0061CA3B /* UserDefaultUtils.swift */,
+				FD8D5CCC216B3CA9002BFFC5 /* GifUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				FD47AACD2148EC120061CA3B /* ex+UILabel.swift in Sources */,
 				FD47AAAA2148E4F60061CA3B /* SelectViewController.swift in Sources */,
 				FD47AAF52148EDBB0061CA3B /* SystemUtils.swift in Sources */,
+				FD8D5CCD216B3CA9002BFFC5 /* GifUtils.swift in Sources */,
 				FD47AAF12148EDBB0061CA3B /* HUDUtil.swift in Sources */,
 				FD47AACF2148EC550061CA3B /* ex+UIView.swift in Sources */,
 				FD47AA492148E4620061CA3B /* ViewController.swift in Sources */,

@@ -53,4 +53,14 @@ extension Int {
         return ""
     }
 
+
+    var doubleValue:Double! {
+        return Double(self)
+    }
+
+    var floatValue:Float! {
+        return Float(self)
+    }
+
+
 }
