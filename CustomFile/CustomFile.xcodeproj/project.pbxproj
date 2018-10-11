@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD159486216C3DA700B97E9F /* CenterToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD159485216C3DA700B97E9F /* CenterToastView.swift */; };
 		FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA462148E4620061CA3B /* AppDelegate.swift */; };
 		FD47AA492148E4620061CA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA482148E4620061CA3B /* ViewController.swift */; };
 		FD47AA4C2148E4620061CA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD47AA4A2148E4620061CA3B /* Main.storyboard */; };
@@ -25,7 +26,6 @@
 		FD47AA952148E4F60061CA3B /* TextBottomImgTopBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA6C2148E4EF0061CA3B /* TextBottomImgTopBtn.swift */; };
 		FD47AA982148E4F60061CA3B /* GTDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA6F2148E4EF0061CA3B /* GTDatePickerView.swift */; };
 		FD47AA9D2148E4F60061CA3B /* NoDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA742148E4F10061CA3B /* NoDataView.swift */; };
-		FD47AAA02148E4F60061CA3B /* CenterToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA772148E4F20061CA3B /* CenterToastView.swift */; };
 		FD47AAA22148E4F60061CA3B /* KeyBoardUpUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA792148E4F20061CA3B /* KeyBoardUpUtils.swift */; };
 		FD47AAA32148E4F60061CA3B /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA7A2148E4F30061CA3B /* KeyBoardView.swift */; };
 		FD47AAA72148E4F60061CA3B /* InputInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA7E2148E4F40061CA3B /* InputInfoView.swift */; };
@@ -58,10 +58,12 @@
 		FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAEC2148EDBB0061CA3B /* NetTool.swift */; };
 		FD47AB082148EED00061CA3B /* NetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB062148EED00061CA3B /* NetConstants.swift */; };
 		FD47AB092148EED00061CA3B /* NetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB072148EED00061CA3B /* NetRequest.swift */; };
+		FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69EA02216F411E00D5EC2F /* MsmLab.swift */; };
 		FD8D5CCD216B3CA9002BFFC5 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D5CCC216B3CA9002BFFC5 /* GifView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD159485216C3DA700B97E9F /* CenterToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterToastView.swift; sourceTree = "<group>"; };
 		FD47AA432148E4620061CA3B /* CustomFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD47AA462148E4620061CA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD47AA482148E4620061CA3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 		FD47AA6C2148E4EF0061CA3B /* TextBottomImgTopBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextBottomImgTopBtn.swift; sourceTree = "<group>"; };
 		FD47AA6F2148E4EF0061CA3B /* GTDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GTDatePickerView.swift; sourceTree = "<group>"; };
 		FD47AA742148E4F10061CA3B /* NoDataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataView.swift; sourceTree = "<group>"; };
-		FD47AA772148E4F20061CA3B /* CenterToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterToastView.swift; sourceTree = "<group>"; };
 		FD47AA792148E4F20061CA3B /* KeyBoardUpUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardUpUtils.swift; sourceTree = "<group>"; };
 		FD47AA7A2148E4F30061CA3B /* KeyBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
 		FD47AA7E2148E4F40061CA3B /* InputInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputInfoView.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		FD47AAEC2148EDBB0061CA3B /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
 		FD47AB062148EED00061CA3B /* NetConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetConstants.swift; sourceTree = "<group>"; };
 		FD47AB072148EED00061CA3B /* NetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetRequest.swift; sourceTree = "<group>"; };
+		FD69EA02216F411E00D5EC2F /* MsmLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsmLab.swift; sourceTree = "<group>"; };
 		FD8D5CCC216B3CA9002BFFC5 /* GifView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD159484216C3DA700B97E9F /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				FD159485216C3DA700B97E9F /* CenterToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 		FD47AA3A2148E4620061CA3B = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +188,7 @@
 				FD47AAB32148E9620061CA3B /* lab */,
 				FD47AAB22148E9470061CA3B /* InputView */,
 				FD47AAB12148E90F0061CA3B /* Picker */,
-				FD47AAB02148E8F90061CA3B /* Toast */,
+				FD159484216C3DA700B97E9F /* Toast */,
 				FD47AAAF2148E8B50061CA3B /* view并排 */,
 				FD47AAAE2148E8960061CA3B /* 半透明view */,
 				FD47AA652148E4ED0061CA3B /* ItemBasicabCell.swift */,
@@ -210,17 +220,9 @@
 			path = "view并排";
 			sourceTree = "<group>";
 		};
-		FD47AAB02148E8F90061CA3B /* Toast */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Toast;
-			sourceTree = "<group>";
-		};
 		FD47AAB12148E90F0061CA3B /* Picker */ = {
 			isa = PBXGroup;
 			children = (
-				FD47AA772148E4F20061CA3B /* CenterToastView.swift */,
 				FD47AA6F2148E4EF0061CA3B /* GTDatePickerView.swift */,
 				FD47AA602148E4ED0061CA3B /* GTMonthPickerView.swift */,
 			);
@@ -242,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				FD47AA672148E4EE0061CA3B /* UIAnimationLab.swift */,
+				FD69EA02216F411E00D5EC2F /* MsmLab.swift */,
 			);
 			path = lab;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				FD47AA912148E4F60061CA3B /* ImportInfoTextField.swift in Sources */,
 				FD47AA892148E4F60061CA3B /* GTMonthPickerView.swift in Sources */,
 				FD47AAA32148E4F60061CA3B /* KeyBoardView.swift in Sources */,
+				FD159486216C3DA700B97E9F /* CenterToastView.swift in Sources */,
 				FD47AA982148E4F60061CA3B /* GTDatePickerView.swift in Sources */,
 				FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */,
 				FD47AACD2148EC120061CA3B /* ex+UILabel.swift in Sources */,
@@ -404,7 +408,6 @@
 				FD47AACF2148EC550061CA3B /* ex+UIView.swift in Sources */,
 				FD47AA492148E4620061CA3B /* ViewController.swift in Sources */,
 				FD47AAF62148EDBB0061CA3B /* UserDefaultUtils.swift in Sources */,
-				FD47AAA02148E4F60061CA3B /* CenterToastView.swift in Sources */,
 				FD47AAEF2148EDBB0061CA3B /* DebugUtils.swift in Sources */,
 				FD47AA952148E4F60061CA3B /* TextBottomImgTopBtn.swift in Sources */,
 				FD47AAB62148E9930061CA3B /* ex+String.swift in Sources */,
@@ -422,6 +425,7 @@
 				FD47AAC32148EAF60061CA3B /* TabBarView.swift in Sources */,
 				FD47AAC72148EB000061CA3B /* ex+Int.swift in Sources */,
 				FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */,
+				FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */,
 				FD47AA862148E4F60061CA3B /* ImgAndTextView.swift in Sources */,
 				FD47AA9D2148E4F60061CA3B /* NoDataView.swift in Sources */,
 			);
@@ -577,7 +581,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinliang.CustomFile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CustomFile/JLCustom/Utils/CustomFile-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -598,7 +601,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jinliang.CustomFile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "CustomFile/JLCustom/Utils/CustomFile-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
