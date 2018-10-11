@@ -68,6 +68,7 @@ class MsMNumLab: UILabel {
                 CLICKED_GET = false
                     ///开始的时间戳
                 countdowntime = 60
+                canclickcomplete?()
             }
         }
     }
