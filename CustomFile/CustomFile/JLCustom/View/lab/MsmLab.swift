@@ -117,7 +117,6 @@ extension MsMNumLab {
             self?.refreshText(observer: observer,text:"\(self!.countdowntime)")
 
             return Disposables.create { [weak self] in
-                self?.isUserInteractionEnabled = true
                 self?.CLICKED_GET = false
             }
         })
@@ -125,7 +124,6 @@ extension MsMNumLab {
     
     ///倒计时的方法
     private func refreshText(observer:AnyObserver<String>,text:String) {
-        self.isUserInteractionEnabled = false
         observer.onNext(text)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) { [weak self] in
             let num = Int(text)! - 1
