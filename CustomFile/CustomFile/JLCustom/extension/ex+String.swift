@@ -65,6 +65,26 @@ extension String {
         return nil
     }
 
+    func pinYinZChines()->String{
+
+        let transformContents = CFStringCreateMutableCopy(nil, 0, self)
+
+        CFStringTransform( transformContents, nil, kCFStringTransformMandarinLatin, false)
+
+        CFStringTransform( transformContents, nil, kCFStringTransformStripDiacritics,  false)
+
+        let ztransformContents = transformContents as String
+
+        let index = ztransformContents.startIndex.advancedBy(0)
+
+        let firstString = ztransformContents[index]
+
+        let stringZ = String.init(firstString)
+
+        return stringZ.uppercaseString
+
+    }
+
     func deleteWhiteSpace() -> String {
         return self.replacingOccurrences(of: " ", with: "")
     }
