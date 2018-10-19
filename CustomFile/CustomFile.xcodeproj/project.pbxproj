@@ -61,6 +61,7 @@
 		FD54F5EC2179D4D200D54926 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5E92179D4D200D54926 /* BaseNavigationController.swift */; };
 		FD54F5ED2179D4D200D54926 /* BaselistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5EA2179D4D200D54926 /* BaselistController.swift */; };
 		FD54F5EE2179D4D200D54926 /* BaseLoadataFromServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5EB2179D4D200D54926 /* BaseLoadataFromServer.swift */; };
+		FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */; };
 		FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69EA02216F411E00D5EC2F /* MsmLab.swift */; };
 		FD8D5CCD216B3CA9002BFFC5 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8D5CCC216B3CA9002BFFC5 /* GifView.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		FD54F5E92179D4D200D54926 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		FD54F5EA2179D4D200D54926 /* BaselistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaselistController.swift; sourceTree = "<group>"; };
 		FD54F5EB2179D4D200D54926 /* BaseLoadataFromServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLoadataFromServer.swift; sourceTree = "<group>"; };
+		FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+UIViewController.swift"; sourceTree = "<group>"; };
 		FD69EA02216F411E00D5EC2F /* MsmLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsmLab.swift; sourceTree = "<group>"; };
 		FD8D5CCC216B3CA9002BFFC5 /* GifView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +269,7 @@
 				FD47AACC2148EC120061CA3B /* ex+UILabel.swift */,
 				FD47AACE2148EC550061CA3B /* ex+UIView.swift */,
 				FD47AAD02148ECFD0061CA3B /* ex+UIImage.swift */,
+				FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				FD54F5EE2179D4D200D54926 /* BaseLoadataFromServer.swift in Sources */,
 				FD47AAF12148EDBB0061CA3B /* HUDUtil.swift in Sources */,
 				FD47AACF2148EC550061CA3B /* ex+UIView.swift in Sources */,
+				FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */,
 				FD47AA492148E4620061CA3B /* ViewController.swift in Sources */,
 				FD47AAF62148EDBB0061CA3B /* UserDefaultUtils.swift in Sources */,
 				FD47AAEF2148EDBB0061CA3B /* DebugUtils.swift in Sources */,
