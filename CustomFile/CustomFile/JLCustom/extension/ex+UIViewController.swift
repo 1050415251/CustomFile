@@ -232,12 +232,14 @@ extension UIViewController {
 
 
     @objc func willAppear(animatie:Bool) {
-
+        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UIInputWindowController") || self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UISystemKeyboardDockController")  {
+            return
+        }
         DEBUG.DEBUGPRINT(obj: "runtime 拦截了viewwillAppear事件")
     }
 
     @objc func didAppear(animatie:Bool) {
-        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") {
+        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UIInputWindowController") || self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UISystemKeyboardDockController")  {
             return
         }
 
@@ -249,15 +251,14 @@ extension UIViewController {
     }
 
     @objc func willDisAppear(animatie:Bool) {
-        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") {
-
+        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UIInputWindowController") || self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UISystemKeyboardDockController")  {
             return
         }
         HUDUtil.hideHud(isForce: true)
     }
 
     @objc func didDisAppear(animated:Bool) {
-        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") {
+        if self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UIInputWindowController") || self.classForCoder ==  NSClassFromString("UICompatibilityInputViewController") || self.classForCoder ==  NSClassFromString("UISystemKeyboardDockController")  {
             return
         }
 

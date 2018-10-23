@@ -21,13 +21,8 @@ extension Double {
         return String(format: formatString, self)
     }
 
-
-    var intValue:Int! {
-        return Int(self) ?? 0
-    }
-
-    var int:Int? {
-        return Int(self)
+    func format(_ numbersAfterDot: Int) -> Double? {
+        return Double(self.format(numbersAfterDot))
     }
 
 
