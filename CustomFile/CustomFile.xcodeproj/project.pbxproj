@@ -12,6 +12,7 @@
 		FD29D583221AA57900AD5472 /* CustomFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D582221AA57900AD5472 /* CustomFileTests.swift */; };
 		FD29D591221AA58200AD5472 /* CustomFileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D590221AA58200AD5472 /* CustomFileUITests.swift */; };
 		FD29D59A221AA65300AD5472 /* JLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D599221AA65300AD5472 /* JLTableViewCell.swift */; };
+		FD29D59E221AC37D00AD5472 /* JLTableViewDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D59D221AC37D00AD5472 /* JLTableViewDataSourceProtocol.swift */; };
 		FD3DB0FD21EC7B8D000AB128 /* ex+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3DB0FC21EC7B8D000AB128 /* ex+Array.swift */; };
 		FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA462148E4620061CA3B /* AppDelegate.swift */; };
 		FD47AA492148E4620061CA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA482148E4620061CA3B /* ViewController.swift */; };
@@ -88,6 +89,7 @@
 		FD29D590221AA58200AD5472 /* CustomFileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileUITests.swift; sourceTree = "<group>"; };
 		FD29D592221AA58200AD5472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD29D599221AA65300AD5472 /* JLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableViewCell.swift; sourceTree = "<group>"; };
+		FD29D59D221AC37D00AD5472 /* JLTableViewDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableViewDataSourceProtocol.swift; sourceTree = "<group>"; };
 		FD3DB0FC21EC7B8D000AB128 /* ex+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+Array.swift"; sourceTree = "<group>"; };
 		FD47AA432148E4620061CA3B /* CustomFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD47AA462148E4620061CA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				FD29D4F0221AA04300AD5472 /* JLTableViewController.swift */,
+				FD29D59D221AC37D00AD5472 /* JLTableViewDataSourceProtocol.swift */,
 				FD29D599221AA65300AD5472 /* JLTableViewCell.swift */,
 			);
 			path = List;
@@ -620,6 +623,7 @@
 				FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */,
 				FD47AA492148E4620061CA3B /* ViewController.swift in Sources */,
 				FD29D59A221AA65300AD5472 /* JLTableViewCell.swift in Sources */,
+				FD29D59E221AC37D00AD5472 /* JLTableViewDataSourceProtocol.swift in Sources */,
 				FD47AAEF2148EDBB0061CA3B /* DebugUtils.swift in Sources */,
 				FD47AAB62148E9930061CA3B /* ex+String.swift in Sources */,
 				FD47AAF02148EDBB0061CA3B /* PermissionUtils.swift in Sources */,
