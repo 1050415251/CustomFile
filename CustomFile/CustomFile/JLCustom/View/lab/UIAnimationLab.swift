@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 ///自己写的一个类
 
@@ -78,7 +78,7 @@ class UIZJLAnimationLab: UILabel {
 
 
         timer = CADisplayLink.init(target: self, selector: #selector(UIZJLAnimationLab.timerclick(sender:)))
-        timer.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        timer.add(to: RunLoop.current, forMode: RunLoop.Mode.default)
     }
 
 

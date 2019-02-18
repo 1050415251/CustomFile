@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Photos
 
 class PermissionUtils: NSObject {
 
@@ -86,8 +87,8 @@ class PermissionUtils: NSObject {
         let message = "请在\(appname)的\"设置-隐私-\(type.rawValue)\"选项中，允许\(appname)访问。"
         let alertUtils = AlertUtils()
         alertUtils.showAlert(title: message, message: nil, leftText: "以后", rightText: "设置", leftCallback: nil) {
-            if UIApplication.shared.canOpenURL(URL.init(string: UIApplicationOpenSettingsURLString)!) {
-                OpenAppUtils.openApp(url: UIApplicationOpenSettingsURLString)
+            if UIApplication.shared.canOpenURL(URL.init(string: UIApplication.openSettingsURLString)!) {
+                OpenAppUtils.openApp(url: UIApplication.openSettingsURLString)
             }else {
                // let alertUtils = AlertUtils()
                 alertUtils.showAlert(title: "打开设置失败，请手动操作", message: nil, leftText: "好的", rightText: nil, leftCallback: nil, rightCallback: nil)
@@ -98,12 +99,12 @@ class PermissionUtils: NSObject {
     //MARK:跳转到APP系统设置权限界面
     static func jumpToSystemPrivacySetting()
     {
-        let appSetting = URL(string:UIApplicationOpenSettingsURLString)
+        let appSetting = URL(string:UIApplication.openSettingsURLString)
 
         if appSetting != nil
         {
             if #available(iOS 10, *) {
-                UIApplication.shared.open(appSetting!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(appSetting!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }
             else{
                 UIApplication.shared.openURL(appSetting!)
@@ -117,4 +118,9 @@ enum PermissionType: String {
     case CAMERA = "相机"
     case ALBUM = "相册"
     case LOCATION = "定位"
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

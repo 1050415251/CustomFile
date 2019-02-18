@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class ItemImgCell: ItemBasicabCell {
 
@@ -15,7 +15,7 @@ class ItemImgCell: ItemBasicabCell {
 
     var changeswitchcallback:((Bool)->Void)?
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addImgView()
     }
@@ -32,14 +32,14 @@ class ItemImgCell: ItemBasicabCell {
         rightImgV.snp.remakeConstraints { (make) in
             make.centerY.equalTo(self)
             make.right.equalTo(-15)
-            make.size.equalTo(scale(30))
+            make.size.equalTo(30)
         }
     }
 
     func setResult(data: Any) {
         if let urlstr = data as? String,let url = URL.init(string: urlstr) {
             rightImgV.image = nil
-            rightImgV.sd_setImage(with: url)
+
         }
         if let img = data as? UIImage {
             rightImgV.image = img

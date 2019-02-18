@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 ///图跟字在一个父view里面
 class ImgAndTextView: UIView {
@@ -59,7 +60,7 @@ class ImgAndTextView: UIView {
         imgV.image = img
         lab.text = text
         lab.textColor = textC
-        lab.font = UIFont.font(ofSize: textF)
+        lab.font = UIFont.systemFont(ofSize: textF)
         self.layer.cornerRadius = cornerRadious
         
         upConstraints(isLeft: isLeft, distance: distance,aligment:aligment)

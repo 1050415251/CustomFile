@@ -41,14 +41,14 @@ class MsMNumLab: UILabel {
 
     private func initObserVer() {
         ///监听进入到了后台 将计时器销毁
-        let _ =  NotificationCenter.default.rx.notification(Notification.Name.UIApplicationWillResignActive, object: nil).subscribe { [weak self] (event) in
+        let _ =  NotificationCenter.default.rx.notification(UIApplication.willResignActiveNotification, object: nil).subscribe { [weak self] (event) in
             if let _ = event.element {
                 self?.disBg = nil
             }
         }
 
         ///监听进入到了前台
-        let _ = NotificationCenter.default.rx.notification(Notification.Name.UIApplicationDidBecomeActive, object: nil).subscribe { [weak self] (event) in
+        let _ = NotificationCenter.default.rx.notification(UIApplication.didBecomeActiveNotification, object: nil).subscribe { [weak self] (event) in
             if let _ = event.element {
                 self?.checkhaveLastTime()
             }

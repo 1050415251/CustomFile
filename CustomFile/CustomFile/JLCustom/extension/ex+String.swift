@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
 
@@ -65,23 +66,23 @@ extension String {
         return nil
     }
 
-    func pinYinZChines()->String{
+    func pinYinZChines()->String {
 
-        let transformContents = CFStringCreateMutableCopy(nil, 0, self)
+        let transformContents = CFStringCreateMutableCopy(nil, 0, self as CFString)
 
         CFStringTransform( transformContents, nil, kCFStringTransformMandarinLatin, false)
 
         CFStringTransform( transformContents, nil, kCFStringTransformStripDiacritics,  false)
 
-        let ztransformContents = transformContents as String
+        let ztransformContents = transformContents as! String
 
-        let index = ztransformContents.startIndex.advancedBy(0)
+        let index = ztransformContents.startIndex
 
         let firstString = ztransformContents[index]
 
         let stringZ = String.init(firstString)
 
-        return stringZ.uppercaseString
+        return stringZ.uppercased()
 
     }
 
@@ -93,7 +94,7 @@ extension String {
 
         let bounds = self.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)),
                                        options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                       attributes: [NSAttributedStringKey.font: font],
+                                       attributes: [NSAttributedString.Key.font: font],
                                        context: nil)
         return ceil(bounds.height + padding * 2)
     }
@@ -102,7 +103,7 @@ extension String {
 
         let bounds = self.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height),
                                        options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                       attributes: [NSAttributedStringKey.font: font],
+                                       attributes: [NSAttributedString.Key.font: font],
                                        context: nil)
         return  ceil(bounds.width + padding * 2)
     }

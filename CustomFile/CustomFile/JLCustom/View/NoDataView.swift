@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 ///没有数据的view
 class NoDataView: UIView {
     
     var tipImg:UIImageView!
     var tipLabel:UILabel!
-    var imgToTop:CGFloat = scale(20)
-    var labelToImg:CGFloat = scale(10)
+    var imgToTop:CGFloat = 20
+    var labelToImg:CGFloat = 10
     
     var IMGTOTOP:CGFloat {
         get {

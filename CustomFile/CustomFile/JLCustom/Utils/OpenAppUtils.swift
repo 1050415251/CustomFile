@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 ///打开其他的app方式
 class OpenAppUtils: NSObject {
     
@@ -19,7 +19,7 @@ class OpenAppUtils: NSObject {
         }
         if UIApplication.shared.canOpenURL(newurl) {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL.init(string: url)!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL.init(string: url)!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }else {
                 UIApplication.shared.openURL(URL.init(string: url)!)
             }
@@ -35,4 +35,9 @@ class OpenAppUtils: NSObject {
         return UIApplication.shared.canOpenURL(newurl)
     }
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

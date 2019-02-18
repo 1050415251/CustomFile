@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AlphaView: UIView {
     
@@ -37,10 +38,7 @@ class AlphaView: UIView {
             fatalError("请设置showVframe(在show的时候)")
         }
         
-        if AppDelegate.KEYBOARDSHOW {
-            self.endEditing(true)
-            return
-        }
+
         if !CLICKELSEHIDDEN {
             return
         }
@@ -55,12 +53,10 @@ class AlphaView: UIView {
     }
     
     func show() {
-         APP.navController?.fd_fullscreenPopGestureRecognizer.isEnabled = false
         ctr.view.addSubview(self)
     }
     
     func show_Animation() { ///待动画
-        APP.navController?.fd_fullscreenPopGestureRecognizer.isEnabled = false
         ctr.view.addSubview(self)
         
             for i in self.subviews {
@@ -85,7 +81,6 @@ class AlphaView: UIView {
     
     
     func hidden() {
-         APP.navController?.fd_fullscreenPopGestureRecognizer.isEnabled = true
         for i in self.subviews {
             i.removeFromSuperview()
         }
@@ -93,7 +88,6 @@ class AlphaView: UIView {
     }
     
     func hidden_Animation() {
-        APP.navController?.fd_fullscreenPopGestureRecognizer.isEnabled = true
         UIView.animate(withDuration: 0.15, animations: {
             for i in self.subviews {
                 i.transform = CGAffineTransform.init(scaleX: 0.75, y: 0.75)

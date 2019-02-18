@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 //alret帮助类
 @objcMembers
@@ -26,15 +27,15 @@ class AlertUtils: NSObject {
     
     func showAlert(title:String?,message:String?,leftText:String?,rightText:String?,leftCallback:(()->Void)?,rightCallback:(()->Void)?) {
         
-        alert = UIAlertController(title: title,message: message,preferredStyle: UIAlertControllerStyle.alert)
+        alert = UIAlertController(title: title,message: message,preferredStyle: UIAlertController.Style.alert)
         if let txt = leftText {
-            let leftAction = UIAlertAction(title: txt,style: UIAlertActionStyle.default,handler: { Action in
+            let leftAction = UIAlertAction(title: txt,style: UIAlertAction.Style.default,handler: { Action in
                 leftCallback?()
             })
             alert.addAction(leftAction)
         }
         if let txt = rightText {
-            let rightAction = UIAlertAction(title: txt,style: UIAlertActionStyle.default,handler: { Action in
+            let rightAction = UIAlertAction(title: txt,style: UIAlertAction.Style.default,handler: { Action in
                 rightCallback?()
             })
             alert.addAction(rightAction)
@@ -53,13 +54,13 @@ class AlertUtils: NSObject {
     ///    - clickcomplete:点击后的回调
     func showAlretSheet(title:String?,message:String?,info:[String],importindex:[Int]? = nil,rect:CGRect? = nil,clickcomplete:((Int)->Void)?) {
         
-        alert = UIAlertController(title: title,message: message,preferredStyle: UIAlertControllerStyle.actionSheet)
+        alert = UIAlertController(title: title,message: message,preferredStyle: UIAlertController.Style.actionSheet)
         for i in 0..<info.count {
-            var style = (i == info.count - 1 ? UIAlertActionStyle.cancel:UIAlertActionStyle.default)
+            var style = (i == info.count - 1 ? UIAlertAction.Style.cancel:UIAlertAction.Style.default)
             if let _ = importindex {
                 for index in importindex! {
                     if i == index {
-                        style = UIAlertActionStyle.destructive
+                        style = UIAlertAction.Style.destructive
                     }
                 }
             }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UILabel {
 
@@ -19,7 +20,7 @@ extension UILabel {
         let myFont = CTFontCreateWithName(font.fontName as CFString, font.pointSize,nil)
         let attstr = NSMutableAttributedString(string: text)
         //kCTFontAttributeName
-        attstr.addAttributes([NSAttributedStringKey(rawValue: kCTFontAttributeName as String) : myFont], range: NSRange(location: 0,length: attstr.length))
+        attstr.addAttributes([NSAttributedString.Key(rawValue: kCTFontAttributeName as String) : myFont], range: NSRange(location: 0,length: attstr.length))
         let frameSetter = CTFramesetterCreateWithAttributedString(attstr)
         let path = CGMutablePath()
         //      var transform = CGAffineTransform.identity

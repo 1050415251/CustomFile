@@ -34,7 +34,7 @@ class ShowHalfAlphaViewUtils: NSObject {
     }
     
     func getViewSize(baseV:UIView,WIDTH:CGFloat) -> CGSize {
-        let height = baseV.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = baseV.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         let size = CGSize.init(width: WIDTH, height: height)
         return size
     }
@@ -45,41 +45,6 @@ class ShowHalfAlphaViewUtils: NSObject {
     
 }
 
-//MARK:显示出半透明的view
-extension ShowHalfAlphaViewUtils {
-    
-//MARK:-------------------------------------------------------------------------
-    //TODO: 展示出新手奖励的view
-    func showrewardCompassView(action: NoViceTaskAction,url:String) {
-
-        let imgV = UIImageView()
-        imgV.sd_setImage(with: URL.init(string: url)!)
-        imgV.frame = CGRect.init(x: (SCREEN_WIDTH - 375) * 0.5, y: (SCREEN_HEIGHT - 380) * 0.5 - scale(50), width: 375, height: 380)
-        alphaV.showVframe = imgV.frame
-        imgV.isUserInteractionEnabled = true
-        alphaV.addSubview(imgV)
-        alphaV.show()
-
-        let btn = UIButton(type:.custom)
-        btn.setBackgroundImage(#imageLiteral(resourceName: "app_findmoreprize"), for: UIControlState.normal)
-        btn.addTarget(self, action: #selector(clickToNoviceWeflareWeb), for: UIControlEvents.touchUpInside)
-        imgV.addSubview(btn)
-        btn.snp.remakeConstraints { (make) in
-            make.centerX.equalTo(imgV)
-            make.bottom.equalTo(imgV).offset(-scale(30))
-            make.width.equalTo(scale(136))
-            make.height.equalTo(scale(30))
-        }
-    }
-
-    @objc func clickToNoviceWeflareWeb() {
-        self.alphaV.hidden_Animation()
-        APP.navController.goH5("activity/2018/noviceWelfare/noviceTask.html")
-    }
-
-   
-    
-}
 
 //MARK:点击区域
 extension ShowHalfAlphaViewUtils  {
@@ -91,7 +56,7 @@ extension ShowHalfAlphaViewUtils  {
 
         let imgV = UIImageView(image: img)
         imgV.backgroundColor =  0xffffff.rgbColor
-        imgV.layer.cornerRadius = scale(9)
+        imgV.layer.cornerRadius = 9
 
         bgV.addSubview(imgV)
         imgV.snp.remakeConstraints { (make) in
@@ -102,22 +67,22 @@ extension ShowHalfAlphaViewUtils  {
         }
 
         let closeBtn = UIButton(type: .custom)
-        closeBtn.setImage(#imageLiteral(resourceName: "close_btn"), for: UIControlState.normal)
+        closeBtn.setImage(#imageLiteral(resourceName: "close_btn"), for: UIControl.State.normal)
         bgV.addSubview(closeBtn)
         closeBtn.snp.remakeConstraints { (make) in
-            make.top.equalTo(imgV.snp.bottom).offset(scale(30))
+            make.top.equalTo(imgV.snp.bottom).offset(30)
             make.centerX.equalTo(bgV)
             make.bottom.equalTo(bgV)
         }
 
-        let _ = closeBtn.rx.controlEvent(UIControlEvents.touchUpInside).subscribe {[weak self] (event) in
+        let _ = closeBtn.rx.controlEvent(UIControl.Event.touchUpInside).subscribe {[weak self] (event) in
             if let _ = event.element {
                 self?.alphaV.hidden_Animation()
                 complete?()
             }
         }
 
-        let height = bgV.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+        let height = bgV.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         bgV.frame = CGRect.init(x: (SCREEN_WIDTH - 305) * 0.5, y: (SCREEN_HEIGHT - height) * 0.5, width: 305, height: height)
         alphaV.CLICKELSEHIDDEN = false
         alphaV.showVframe = bgV.frame

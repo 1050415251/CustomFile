@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ItemBasicabCell:UITableViewCell {
     
@@ -17,7 +18,7 @@ class ItemBasicabCell:UITableViewCell {
 
     var longpressclickcallback:(()->Void)?
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initView()
         self.addGestureRecognizer(UILongPressGestureRecognizer.init(target: self, action: #selector(longpressclick(sender:))))
@@ -33,7 +34,7 @@ class ItemBasicabCell:UITableViewCell {
     
     private func addView() {
         leftLab = UILabel()
-        leftLab.font = UIFont.font(ofSize: 14)
+        leftLab.font = UIFont.systemFont(ofSize: 14)
         leftLab.textColor = 0x333333.rgbColor
         self.addSubview(leftLab)
         leftLab.snp.remakeConstraints { (make) in
@@ -43,7 +44,7 @@ class ItemBasicabCell:UITableViewCell {
         
         
         rightLab = UILabel()
-        rightLab.font = UIFont.font(ofSize: 14)
+        rightLab.font = UIFont.systemFont(ofSize: 14)
         rightLab.textColor = 0x333333.rgbColor
         rightLab.textAlignment = .right
         self.addSubview(rightLab)

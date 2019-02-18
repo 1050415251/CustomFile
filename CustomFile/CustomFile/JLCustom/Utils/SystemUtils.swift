@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 ///系统utils
 class SystemUtils: NSObject {

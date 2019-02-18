@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 extension Int {
 
@@ -16,6 +16,12 @@ extension Int {
         let green = CGFloat(Double(self >> 8 % 256) / 255.0)
         let blue = CGFloat(Double(self % 256) / 255.0)
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+
+    var rgbColor: UIColor {
+        get {
+            return rgbColor(1.0)
+        }
     }
 
     //MARK:Int赚字符串
