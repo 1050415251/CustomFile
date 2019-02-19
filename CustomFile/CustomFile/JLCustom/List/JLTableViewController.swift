@@ -9,30 +9,30 @@
 import Foundation
 import UIKit
 import RxDataSources
+import RxCocoa
+import RxSwift
+import MJRefresh
+import HandyJSON
 
-class ListViewController<Model: NSObject>: UIViewController {
+class ListViewController: UIViewController {
 
     private(set) var tableView: UITableView!
 
-    /// 注册单个cell
-    var registerAnyCellClass: AnyClass? {
-        didSet {
-            tableView.register(registerAnyCellClass!, forCellReuseIdentifier: NSStringFromClass(registerAnyCellClass!))
-        }
-    }
+    var customnavcomplete:(()->UIView?)?
 
-
-    var didSelectedAtIndexPath: ((IndexPath)->Void)?
-    var cellforrowAtindexPath: ((IndexPath,Model)->UITableViewCell)?
-    var didSelectedAtCell: ((UITableViewCell)->Void)?
-    var didSelectedAtModel: ((Model)->Void)?
+//    private(set) var dataSrc: JLTableViewDataSource<T: HandyJSON>! {
+//        didSet {
+//            dataSrc.tableView = tableView
+//            dataSrc.setUpObserVer()
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         setUpUI()
 
     }
-
 
 }
 
@@ -44,7 +44,17 @@ extension ListViewController {
     }
 
     private func addNav() {
-
+        if let callback = customnavcomplete {
+            if let v = callback() {
+                self.view.addSubview(v)
+            }else {
+                tableView.snp.remakeConstraints { (make) in
+                    make.edges.equalTo(0)
+                }
+            }
+        }else {
+            /// 添加通用导航栏view
+        }
     }
 
     private func addView() {
@@ -54,49 +64,20 @@ extension ListViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 80
-        tableView.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.red
+        tableView.register(JLTableViewCell.classForCoder(), forCellReuseIdentifier: NSStringFromClass(JLTableViewCell.classForCoder()))
 
         self.view.addSubview(tableView)
-    }
-
-}
-
-
-extension ListViewController {
-
-    private func setUpObserVer() {
-        let _ = (tableView.rx.itemSelected).subscribe { [weak self] (event) in
-            if let indexPath = event.element {
-
-                self?.didSelectedAtIndexPath?(indexPath)
-            }
+        tableView.snp.remakeConstraints { (make) in
+            make.left.right.bottom.equalTo(0)
+            make.top.equalTo(topLayoutGuide.snp.bottom).offset(44)
         }
 
-        let _ = (tableView.rx.modelSelected(Model.self)).subscribe { [weak self] (event) in
-            if let model = event.element {
-                self?.didSelectedAtModel?(model)
-            }
-        }
-
-        let dataSrc = RxTableViewSectionedReloadDataSource<SEc>.init(configureCell: { (dataSrc, tableV, indexPath, s) -> UITableViewCell in
-
-        })
-
-
     }
 
 }
 
 
 
-struct ListParams {
 
-    var url: String = ""
-    var params:[String:Any]?
 
-    init(url: String,params: [String:Any]?) {
-        self.url = url
-        self.params = params
-    }
-
-}
