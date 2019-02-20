@@ -49,14 +49,10 @@ class ViewController: UIViewController {
 
 }
 
-class DataModel: NSObject,HandyJSON {
+class DataModel: BaseBean {
     var info = "1"
     var text: String = "2"
-    var result: Int = 0
-    var msg:String = ""
-    required override init() {
-        
-    }
+  
 }
 
 class CustomCell: JLTableViewCell {

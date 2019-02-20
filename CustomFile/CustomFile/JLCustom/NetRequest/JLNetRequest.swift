@@ -16,7 +16,7 @@ import HandyJSON
 
 class JLRxNetRequest<T: BaseBean>: NSObject {
 
-    class func reuqestinfoToServer(pathkey: String?,requestParams: RequestParams) -> Observable<[BaseBean]> {
+    class func reuqestlistinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<[BaseBean]> {
         let url = requestParams.url!
         let params = requestParams.params
 
@@ -27,7 +27,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                 let header:[String: String] = ["Content-Type":requestParams.isForm ? "application/x-www-form-urlencoded":"application/json"]
                 /// post请求
                 self.toServer(pathkey: pathkey, url: url, params: params, method: .post,encoding:requestParams.isForm ? URLEncoding.default:JSONEncoding.default ,header: header, complete: nil,completelistdata: { listdata in
-                    observer.onNext(listdata.data ?? [])
+                    observer.onNext(listdata)
                     observer.onCompleted()
                 },failed: { (error) in
                     observer.onError(error)
@@ -37,7 +37,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
 
                 /// get请求
                 self.toServer(pathkey: pathkey, url: url, params: params, method: .get, header: nil, complete: nil, completelistdata: { listdata in
-                    observer.onNext(listdata.data ?? [])
+                    observer.onNext(listdata)
                     observer.onCompleted()
                 }, failed: { (error) in
                     observer.onError(error)
@@ -60,7 +60,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
     ///   - pathkey: json层级比如数据位于第三层级 可以 data/data1/data2 直接取到第三层级的数据
     ///   - requestParams: 请求参数
     /// - Returns: 返回数据的观察者
-    class func reuqestinfoToServer(pathkey: String?,requestParams: RequestParams) -> Observable<BaseBean> {
+    class func reuqestinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<BaseBean> {
 
         let url = requestParams.url!
         let params = requestParams.params
@@ -99,7 +99,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
     }
 
 
-    private class func toServer(pathkey: String?,url: String,params: [String:Any]?,method: HTTPMethod,encoding: ParameterEncoding = URLEncoding.default,header: HTTPHeaders?,complete: ((BaseBean)->Void)?,completelistdata: ((BaseBean)->Void)?,failed: ((Error)->Void)?) {
+    private class func toServer(pathkey: String?,url: String,params: [String:Any]?,method: HTTPMethod,encoding: ParameterEncoding = URLEncoding.default,header: HTTPHeaders?,complete: ((T)->Void)? = nil,completelistdata: (([T])->Void)? = nil,failed: ((Error)->Void)?) {
 
         AlamofireManager.shareInstance().request(URL.init(string: url)!, method: method, parameters: params, encoding: encoding, headers: header).responseJSON { (response) in
             if response.result.isSuccess {
@@ -111,16 +111,25 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                             json = json["\(key)"]
                         }
                     }
-                    if let result = JSONDeserializer<ResultData<T>>.deserializeFrom(dict: json.dictionaryObject) {
-                        result.json = json
-                        if let _ = pathkey {
-                            result.result = json["result"].intValue
-                            result.msg = json["msg"].stringValue
+                    if let array = json.array {
+                        var list: [T] = [T]()
+                        for arr in array {
+                            list.append(JSONDeserializer<T>.deserializeFrom(dict: arr.dictionaryObject)!)
                         }
-                        
-                        result.statuscode = response.response!.statusCode
-                        complete?(result)
+                        completelistdata?(list)
+                    }else {
+                        if let result = JSONDeserializer<T>.deserializeFrom(dict: json.dictionaryObject) {
+                            result.json = json
+                            if let _ = pathkey {
+                                result.result = json["result"].intValue
+                                result.msg = json["msg"].stringValue
+                            }
+                            result.statuscode = response.response!.statusCode
+                            complete?(result)
+                        }
                     }
+
+
                 }else {
                     failed?(JLError.dataError)
                 }
