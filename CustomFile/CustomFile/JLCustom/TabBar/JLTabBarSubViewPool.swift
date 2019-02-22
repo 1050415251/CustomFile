@@ -29,7 +29,7 @@ class JLTabBarSubViewPool: NSObject {
 
     func getJLTabBarSubViewController(identifer: String) -> JLTabBarSubView {
         objc_sync_enter(vcpool)
-        if var vcs = vcpool[identifer],vcs.count == 2 {
+        if var vcs = vcpool[identifer],vcs.count >= 2 {
             objc_sync_exit(vcpool)
             return vcs.remove(at: 0)
         }
@@ -50,10 +50,11 @@ class JLTabBarSubViewPool: NSObject {
         }
         objc_sync_enter(vcpool)
         if let _ = vcpool[identy] {
-            vcpool[identy]?.append(vc)
+            vcpool[identy]!.append(vc)
         }else {
             vcpool[identy] = [vc]
         }
+        debugPrint(vcpool[identy]!.count)
         objc_sync_exit(vcpool)
     }
 

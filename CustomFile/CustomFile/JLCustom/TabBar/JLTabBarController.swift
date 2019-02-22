@@ -124,7 +124,7 @@ extension JLPageView: UIScrollViewDelegate {
     private func recoverysubView() {
         //// 把屏幕外面的放入缓存吃
         let vcs = self.subviews.filter { (subv) -> Bool in
-            (subv.frame.origin.x < CGFloat(currentindex - 1) * self.frame.width || self.frame.origin.x > CGFloat(currentindex + 1) * self.frame.width)
+            (subv.frame.origin.x <= CGFloat(currentindex - 1) * self.frame.width || self.frame.origin.x >= CGFloat(currentindex + 1) * self.frame.width)
         }
         vcs.forEach {
             if let v = $0 as? JLTabBarSubView {
