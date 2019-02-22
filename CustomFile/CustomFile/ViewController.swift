@@ -30,19 +30,33 @@ class ViewController: UIViewController {
 
        // dataSrc = JLTableViewDataSource<CustomCell, JLSectionView, JLSectionView>.init(tableV: vc.tableView)
 
-        let params = RequestParams.init(url: "https://www.weiyangpuhui.com/activityIf/activity/activityConfigure/activityInfo.htm", params: nil, type: .post,isForm: true)
-        
+//        let params = RequestParams.init(url: "https://www.weiyangpuhui.com/activityIf/activity/activityConfigure/activityInfo.htm", params: nil, type: .post,isForm: true)
+//
+//
+//        let tableV = JLTableView<DataModel>.init(requestParams: params)
+//        tableV.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "1")
+//        tableV.frame = CGRect.init(x: 0, y: 0, width: 300, height: 500)
+//        self.view.addSubview(tableV)
+//
+//        tableV.cellforRowAtindexPath = {  v,index,model -> UITableViewCell in
+//            let cell = v.dequeueReusableCell(withIdentifier: "1")!
+//            cell.textLabel?.text = model.actDesc
+//            return cell
+//        }
+        let view = JLPageView()
+        view.maxVCS = 9
+        view.backgroundColor = UIColor.lightGray
+        view.frame = CGRect.init(x: 0, y: 0, width: 300, height: 500)
+        self.view.addSubview(view)
 
-        let tableV = JLTableView<DataModel>.init(requestParams: params)
-        tableV.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "1")
-        tableV.frame = CGRect.init(x: 0, y: 0, width: 300, height: 500)
-        self.view.addSubview(tableV)
+        view.register(JLTabBarSubView.classForCoder(), forVcReuseIdentifier: "JLTabBarSubView")
 
-        tableV.cellforRowAtindexPath = {  v,index,model -> UITableViewCell in
-            let cell = v.dequeueReusableCell(withIdentifier: "1")!
-            cell.textLabel?.text = model.actDesc
-            return cell
+        view.tabBarSubviewForRowAt = { scrollv,index -> JLTabBarSubView in
+            let vc = scrollv.dequeueReusableTabBarSubController(identifer: "JLTabBarSubView")
+            vc.textLab.text = "第\(index)个"
+            return vc
         }
+        
 
     }
 

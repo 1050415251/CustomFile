@@ -44,7 +44,6 @@
 		FD47AAEF2148EDBB0061CA3B /* DebugUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAD62148EDBA0061CA3B /* DebugUtils.swift */; };
 		FD47AAF02148EDBB0061CA3B /* PermissionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAD72148EDBA0061CA3B /* PermissionUtils.swift */; };
 		FD47AAF12148EDBB0061CA3B /* HUDUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAD82148EDBA0061CA3B /* HUDUtil.swift */; };
-		FD47AAF32148EDBB0061CA3B /* ContactsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AADA2148EDBA0061CA3B /* ContactsUtils.swift */; };
 		FD47AAF52148EDBB0061CA3B /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AADC2148EDBA0061CA3B /* SystemUtils.swift */; };
 		FD47AAF82148EDBB0061CA3B /* PhoneTypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AADF2148EDBA0061CA3B /* PhoneTypeUtils.swift */; };
 		FD47AAF92148EDBB0061CA3B /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */; };
@@ -56,6 +55,9 @@
 		FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */; };
 		FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69EA02216F411E00D5EC2F /* MsmLab.swift */; };
 		FD9C82E7221FCDF200595D7D /* NetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82E6221FCDF200595D7D /* NetConstants.swift */; };
+		FD9C82EA221FD8AE00595D7D /* JLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82E9221FD8AE00595D7D /* JLTabBarController.swift */; };
+		FD9C82EC221FD92600595D7D /* JLTabBarSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82EB221FD92600595D7D /* JLTabBarSubView.swift */; };
+		FD9C82EE221FD99300595D7D /* JLTabBarSubViewPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +123,6 @@
 		FD47AAD62148EDBA0061CA3B /* DebugUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugUtils.swift; sourceTree = "<group>"; };
 		FD47AAD72148EDBA0061CA3B /* PermissionUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionUtils.swift; sourceTree = "<group>"; };
 		FD47AAD82148EDBA0061CA3B /* HUDUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDUtil.swift; sourceTree = "<group>"; };
-		FD47AADA2148EDBA0061CA3B /* ContactsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsUtils.swift; sourceTree = "<group>"; };
 		FD47AADC2148EDBA0061CA3B /* SystemUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtils.swift; sourceTree = "<group>"; };
 		FD47AADF2148EDBA0061CA3B /* PhoneTypeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTypeUtils.swift; sourceTree = "<group>"; };
 		FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
@@ -134,6 +135,9 @@
 		FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+UIViewController.swift"; sourceTree = "<group>"; };
 		FD69EA02216F411E00D5EC2F /* MsmLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsmLab.swift; sourceTree = "<group>"; };
 		FD9C82E6221FCDF200595D7D /* NetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConstants.swift; sourceTree = "<group>"; };
+		FD9C82E9221FD8AE00595D7D /* JLTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTabBarController.swift; sourceTree = "<group>"; };
+		FD9C82EB221FD92600595D7D /* JLTabBarSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTabBarSubView.swift; sourceTree = "<group>"; };
+		FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTabBarSubViewPool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +265,7 @@
 		FD47AA582148E48A0061CA3B /* JLCustom */ = {
 			isa = PBXGroup;
 			children = (
+				FD9C82E8221FD85300595D7D /* TabBar */,
 				FD29A56E221BEC2D0073949C /* NetRequest */,
 				FD29D598221AA64000AD5472 /* List */,
 				FD54F5E82179D4AD00D54926 /* ViewController */,
@@ -362,7 +367,6 @@
 			isa = PBXGroup;
 			children = (
 				FD47AAE62148EDBB0061CA3B /* AlertUtils.swift */,
-				FD47AADA2148EDBA0061CA3B /* ContactsUtils.swift */,
 				FD47AAD62148EDBA0061CA3B /* DebugUtils.swift */,
 				FD47AAE72148EDBB0061CA3B /* HandlerStringUtils.h */,
 				FD47AAE92148EDBB0061CA3B /* HandlerStringUtils.m */,
@@ -384,6 +388,16 @@
 				FD54F5E92179D4D200D54926 /* BaseNavigationController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FD9C82E8221FD85300595D7D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FD9C82E9221FD8AE00595D7D /* JLTabBarController.swift */,
+				FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */,
+				FD9C82EB221FD92600595D7D /* JLTabBarSubView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,7 +610,6 @@
 				FD47AAEE2148EDBB0061CA3B /* OpenAppUtils.swift in Sources */,
 				FD47AA902148E4F60061CA3B /* UIAnimationLab.swift in Sources */,
 				FD47AAD12148ECFD0061CA3B /* ex+UIImage.swift in Sources */,
-				FD47AAF32148EDBB0061CA3B /* ContactsUtils.swift in Sources */,
 				FD47AAB82148EA340061CA3B /* ex+NSMutableAttrituString.swift in Sources */,
 				FD47AAF82148EDBB0061CA3B /* PhoneTypeUtils.swift in Sources */,
 				FD29D4F1221AA04300AD5472 /* JLTableView.swift in Sources */,
@@ -609,6 +622,7 @@
 				FD54F5EC2179D4D200D54926 /* BaseNavigationController.swift in Sources */,
 				FD47AAFC2148EDBB0061CA3B /* UIUtils.swift in Sources */,
 				FD47AAF92148EDBB0061CA3B /* TimeUtils.swift in Sources */,
+				FD9C82EE221FD99300595D7D /* JLTabBarSubViewPool.swift in Sources */,
 				FD47AA912148E4F60061CA3B /* ImportInfoTextField.swift in Sources */,
 				FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */,
 				FD47AACD2148EC120061CA3B /* ex+UILabel.swift in Sources */,
@@ -623,6 +637,7 @@
 				FD47AA872148E4F60061CA3B /* AlphaView.swift in Sources */,
 				FD3DB0FD21EC7B8D000AB128 /* ex+Array.swift in Sources */,
 				FD47AAA22148E4F60061CA3B /* KeyBoardUtils.swift in Sources */,
+				FD9C82EC221FD92600595D7D /* JLTabBarSubView.swift in Sources */,
 				FD47AACB2148EBAA0061CA3B /* ex+Date.swift in Sources */,
 				FD47AAFF2148EDBB0061CA3B /* AlertUtils.swift in Sources */,
 				FD47AAC42148EAF60061CA3B /* SelectTabBar.swift in Sources */,
@@ -634,6 +649,7 @@
 				FD29A570221BEC390073949C /* JLNetRequest.swift in Sources */,
 				FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */,
 				FD9C82E7221FCDF200595D7D /* NetConstants.swift in Sources */,
+				FD9C82EA221FD8AE00595D7D /* JLTabBarController.swift in Sources */,
 				FD47AA862148E4F60061CA3B /* ImgAndTextView.swift in Sources */,
 				FD47AA9D2148E4F60061CA3B /* NoDataView.swift in Sources */,
 			);

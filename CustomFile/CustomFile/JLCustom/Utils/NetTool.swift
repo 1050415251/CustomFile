@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class RequestManager {
+
     static var shared = RequestManager()
     
     fileprivate var dataDictionary = [String: Request]()
