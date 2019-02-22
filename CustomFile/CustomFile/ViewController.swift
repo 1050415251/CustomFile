@@ -28,15 +28,20 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        let vc = ListViewController()
-        self.present(vc, animated: true, completion: nil)
-
        // dataSrc = JLTableViewDataSource<CustomCell, JLSectionView, JLSectionView>.init(tableV: vc.tableView)
 
         let params = RequestParams.init(url: "https://www.weiyangpuhui.com/activityIf/activity/activityConfigure/activityInfo.htm", params: nil, type: .post,isForm: true)
+        
 
-        let _ = JLRxNetRequest<DataModel>.reuqestinfoToServer(requestParams: params).subscribe { (event) in
-            
+        let tableV = JLTableView<DataModel>.init(requestParams: params)
+        tableV.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "1")
+        tableV.frame = CGRect.init(x: 0, y: 0, width: 300, height: 500)
+        self.view.addSubview(tableV)
+
+        tableV.cellforRowAtindexPath = {  v,index,model -> UITableViewCell in
+            let cell = v.dequeueReusableCell(withIdentifier: "1")!
+            cell.textLabel?.text = model.actDesc
+            return cell
         }
 
     }
@@ -50,11 +55,8 @@ class ViewController: UIViewController {
 }
 
 class DataModel: BaseBean {
-    var info = "1"
+    var actDesc = "1"
     var text: String = "2"
   
 }
 
-class CustomCell: JLTableViewCell {
-
-}

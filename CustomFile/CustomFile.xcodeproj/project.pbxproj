@@ -8,14 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		38BE6FECFA17FC3395397CF3 /* Pods_CustomFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5450BE0ECE920C77D6664B6 /* Pods_CustomFile.framework */; };
-		FD29A56B221BD2C80073949C /* JLRxTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29A56A221BD2C80073949C /* JLRxTableDelegate.swift */; };
 		FD29A570221BEC390073949C /* JLNetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29A56F221BEC390073949C /* JLNetRequest.swift */; };
 		FD29A572221BF4CD0073949C /* JLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29A571221BF4CD0073949C /* JLError.swift */; };
-		FD29D4F1221AA04300AD5472 /* JLTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D4F0221AA04300AD5472 /* JLTableViewController.swift */; };
+		FD29D4F1221AA04300AD5472 /* JLTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D4F0221AA04300AD5472 /* JLTableView.swift */; };
 		FD29D583221AA57900AD5472 /* CustomFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D582221AA57900AD5472 /* CustomFileTests.swift */; };
 		FD29D591221AA58200AD5472 /* CustomFileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D590221AA58200AD5472 /* CustomFileUITests.swift */; };
-		FD29D59A221AA65300AD5472 /* JLTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D599221AA65300AD5472 /* JLTableViewCell.swift */; };
-		FD29D59E221AC37D00AD5472 /* JLTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29D59D221AC37D00AD5472 /* JLTableViewDataSource.swift */; };
 		FD3DB0FD21EC7B8D000AB128 /* ex+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3DB0FC21EC7B8D000AB128 /* ex+Array.swift */; };
 		FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA462148E4620061CA3B /* AppDelegate.swift */; };
 		FD47AA492148E4620061CA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AA482148E4620061CA3B /* ViewController.swift */; };
@@ -84,18 +81,15 @@
 		4CB4541E4F2557ED0137904C /* Pods-CustomFile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomFile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CustomFile/Pods-CustomFile.debug.xcconfig"; sourceTree = "<group>"; };
 		94BB426A011B5371D7EC4351 /* Pods-CustomFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomFile.release.xcconfig"; path = "Pods/Target Support Files/Pods-CustomFile/Pods-CustomFile.release.xcconfig"; sourceTree = "<group>"; };
 		E5450BE0ECE920C77D6664B6 /* Pods_CustomFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD29A56A221BD2C80073949C /* JLRxTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLRxTableDelegate.swift; sourceTree = "<group>"; };
 		FD29A56F221BEC390073949C /* JLNetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLNetRequest.swift; sourceTree = "<group>"; };
 		FD29A571221BF4CD0073949C /* JLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLError.swift; sourceTree = "<group>"; };
-		FD29D4F0221AA04300AD5472 /* JLTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableViewController.swift; sourceTree = "<group>"; };
+		FD29D4F0221AA04300AD5472 /* JLTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableView.swift; sourceTree = "<group>"; };
 		FD29D580221AA57800AD5472 /* CustomFileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomFileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D582221AA57900AD5472 /* CustomFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileTests.swift; sourceTree = "<group>"; };
 		FD29D584221AA57900AD5472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD29D58E221AA58200AD5472 /* CustomFileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomFileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD29D590221AA58200AD5472 /* CustomFileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileUITests.swift; sourceTree = "<group>"; };
 		FD29D592221AA58200AD5472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD29D599221AA65300AD5472 /* JLTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableViewCell.swift; sourceTree = "<group>"; };
-		FD29D59D221AC37D00AD5472 /* JLTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTableViewDataSource.swift; sourceTree = "<group>"; };
 		FD3DB0FC21EC7B8D000AB128 /* ex+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+Array.swift"; sourceTree = "<group>"; };
 		FD47AA432148E4620061CA3B /* CustomFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD47AA462148E4620061CA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,10 +220,7 @@
 		FD29D598221AA64000AD5472 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				FD29D4F0221AA04300AD5472 /* JLTableViewController.swift */,
-				FD29D599221AA65300AD5472 /* JLTableViewCell.swift */,
-				FD29D59D221AC37D00AD5472 /* JLTableViewDataSource.swift */,
-				FD29A56A221BD2C80073949C /* JLRxTableDelegate.swift */,
+				FD29D4F0221AA04300AD5472 /* JLTableView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -622,7 +613,7 @@
 				FD47AAF32148EDBB0061CA3B /* ContactsUtils.swift in Sources */,
 				FD47AAB82148EA340061CA3B /* ex+NSMutableAttrituString.swift in Sources */,
 				FD47AAF82148EDBB0061CA3B /* PhoneTypeUtils.swift in Sources */,
-				FD29D4F1221AA04300AD5472 /* JLTableViewController.swift in Sources */,
+				FD29D4F1221AA04300AD5472 /* JLTableView.swift in Sources */,
 				FD47AA8A2148E4F60061CA3B /* ItemImgCell.swift in Sources */,
 				FD29A572221BF4CD0073949C /* JLError.swift in Sources */,
 				FD47AAFB2148EDBB0061CA3B /* RxNetUtils.swift in Sources */,
@@ -642,8 +633,6 @@
 				FD47AACF2148EC550061CA3B /* ex+UIView.swift in Sources */,
 				FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */,
 				FD47AA492148E4620061CA3B /* ViewController.swift in Sources */,
-				FD29D59A221AA65300AD5472 /* JLTableViewCell.swift in Sources */,
-				FD29D59E221AC37D00AD5472 /* JLTableViewDataSource.swift in Sources */,
 				FD47AAEF2148EDBB0061CA3B /* DebugUtils.swift in Sources */,
 				FD47AAB62148E9930061CA3B /* ex+String.swift in Sources */,
 				FD47AAF02148EDBB0061CA3B /* PermissionUtils.swift in Sources */,
@@ -654,7 +643,6 @@
 				FD47AAFF2148EDBB0061CA3B /* AlertUtils.swift in Sources */,
 				FD47AAC42148EAF60061CA3B /* SelectTabBar.swift in Sources */,
 				FD47AAC52148EAF60061CA3B /* TabBarController.swift in Sources */,
-				FD29A56B221BD2C80073949C /* JLRxTableDelegate.swift in Sources */,
 				FD47AA852148E4F60061CA3B /* ItemSwitchCell.swift in Sources */,
 				FD47AB082148EED00061CA3B /* NetConstants.swift in Sources */,
 				FD47AAC32148EAF60061CA3B /* TabBarView.swift in Sources */,

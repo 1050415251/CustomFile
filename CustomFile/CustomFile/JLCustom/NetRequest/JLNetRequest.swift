@@ -16,7 +16,7 @@ import HandyJSON
 
 class JLRxNetRequest<T: BaseBean>: NSObject {
 
-    class func reuqestlistinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<[BaseBean]> {
+    class func reuqestlistinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<[T]> {
         let url = requestParams.url!
         let params = requestParams.params
 
@@ -60,7 +60,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
     ///   - pathkey: json层级比如数据位于第三层级 可以 data/data1/data2 直接取到第三层级的数据
     ///   - requestParams: 请求参数
     /// - Returns: 返回数据的观察者
-    class func reuqestinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<BaseBean> {
+    class func reuqestinfoToServer(pathkey: String? = "data",requestParams: RequestParams) -> Observable<T> {
 
         let url = requestParams.url!
         let params = requestParams.params
@@ -128,8 +128,6 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                             complete?(result)
                         }
                     }
-
-
                 }else {
                     failed?(JLError.dataError)
                 }
