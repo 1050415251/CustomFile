@@ -48,16 +48,14 @@
 		FD47AAF52148EDBB0061CA3B /* SystemUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AADC2148EDBA0061CA3B /* SystemUtils.swift */; };
 		FD47AAF82148EDBB0061CA3B /* PhoneTypeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AADF2148EDBA0061CA3B /* PhoneTypeUtils.swift */; };
 		FD47AAF92148EDBB0061CA3B /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */; };
-		FD47AAFB2148EDBB0061CA3B /* RxNetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE22148EDBA0061CA3B /* RxNetUtils.swift */; };
 		FD47AAFC2148EDBB0061CA3B /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE32148EDBB0061CA3B /* UIUtils.swift */; };
 		FD47AAFF2148EDBB0061CA3B /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE62148EDBB0061CA3B /* AlertUtils.swift */; };
 		FD47AB012148EDBB0061CA3B /* HandlerStringUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAE92148EDBB0061CA3B /* HandlerStringUtils.m */; };
 		FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AAEC2148EDBB0061CA3B /* NetTool.swift */; };
-		FD47AB082148EED00061CA3B /* NetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB062148EED00061CA3B /* NetConstants.swift */; };
-		FD47AB092148EED00061CA3B /* NetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD47AB072148EED00061CA3B /* NetRequest.swift */; };
 		FD54F5EC2179D4D200D54926 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5E92179D4D200D54926 /* BaseNavigationController.swift */; };
 		FD54F5F02179E92400D54926 /* ex+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */; };
 		FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD69EA02216F411E00D5EC2F /* MsmLab.swift */; };
+		FD9C82E7221FCDF200595D7D /* NetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82E6221FCDF200595D7D /* NetConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,17 +125,15 @@
 		FD47AADC2148EDBA0061CA3B /* SystemUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemUtils.swift; sourceTree = "<group>"; };
 		FD47AADF2148EDBA0061CA3B /* PhoneTypeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneTypeUtils.swift; sourceTree = "<group>"; };
 		FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
-		FD47AAE22148EDBA0061CA3B /* RxNetUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxNetUtils.swift; sourceTree = "<group>"; };
 		FD47AAE32148EDBB0061CA3B /* UIUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
 		FD47AAE62148EDBB0061CA3B /* AlertUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		FD47AAE72148EDBB0061CA3B /* HandlerStringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandlerStringUtils.h; sourceTree = "<group>"; };
 		FD47AAE92148EDBB0061CA3B /* HandlerStringUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandlerStringUtils.m; sourceTree = "<group>"; };
 		FD47AAEC2148EDBB0061CA3B /* NetTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetTool.swift; sourceTree = "<group>"; };
-		FD47AB062148EED00061CA3B /* NetConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetConstants.swift; sourceTree = "<group>"; };
-		FD47AB072148EED00061CA3B /* NetRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetRequest.swift; sourceTree = "<group>"; };
 		FD54F5E92179D4D200D54926 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+UIViewController.swift"; sourceTree = "<group>"; };
 		FD69EA02216F411E00D5EC2F /* MsmLab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsmLab.swift; sourceTree = "<group>"; };
+		FD9C82E6221FCDF200595D7D /* NetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +191,7 @@
 			children = (
 				FD29A56F221BEC390073949C /* JLNetRequest.swift */,
 				FD29A571221BF4CD0073949C /* JLError.swift */,
+				FD9C82E6221FCDF200595D7D /* NetConstants.swift */,
 			);
 			path = NetRequest;
 			sourceTree = "<group>";
@@ -267,7 +264,6 @@
 				FD29A56E221BEC2D0073949C /* NetRequest */,
 				FD29D598221AA64000AD5472 /* List */,
 				FD54F5E82179D4AD00D54926 /* ViewController */,
-				FD47AB052148EEC50061CA3B /* Api */,
 				FD47AAD22148ED920061CA3B /* Utils */,
 				FD47AAB42148E9760061CA3B /* extension */,
 				FD47AA5B2148E4C90061CA3B /* View */,
@@ -365,7 +361,6 @@
 		FD47AAD22148ED920061CA3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FD47AAE22148EDBA0061CA3B /* RxNetUtils.swift */,
 				FD47AAE62148EDBB0061CA3B /* AlertUtils.swift */,
 				FD47AADA2148EDBA0061CA3B /* ContactsUtils.swift */,
 				FD47AAD62148EDBA0061CA3B /* DebugUtils.swift */,
@@ -381,15 +376,6 @@
 				FD47AAE32148EDBB0061CA3B /* UIUtils.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		FD47AB052148EEC50061CA3B /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				FD47AB072148EED00061CA3B /* NetRequest.swift */,
-				FD47AB062148EED00061CA3B /* NetConstants.swift */,
-			);
-			path = Api;
 			sourceTree = "<group>";
 		};
 		FD54F5E82179D4AD00D54926 /* ViewController */ = {
@@ -616,10 +602,8 @@
 				FD29D4F1221AA04300AD5472 /* JLTableView.swift in Sources */,
 				FD47AA8A2148E4F60061CA3B /* ItemImgCell.swift in Sources */,
 				FD29A572221BF4CD0073949C /* JLError.swift in Sources */,
-				FD47AAFB2148EDBB0061CA3B /* RxNetUtils.swift in Sources */,
 				FD47AAC92148EB4C0061CA3B /* ex+Double.swift in Sources */,
 				FD47AA8F2148E4F60061CA3B /* ShowHalfAlphaViewUtils.swift in Sources */,
-				FD47AB092148EED00061CA3B /* NetRequest.swift in Sources */,
 				FD47AB012148EDBB0061CA3B /* HandlerStringUtils.m in Sources */,
 				FD47AA8E2148E4F60061CA3B /* ItemBasicabCell.swift in Sources */,
 				FD54F5EC2179D4D200D54926 /* BaseNavigationController.swift in Sources */,
@@ -644,12 +628,12 @@
 				FD47AAC42148EAF60061CA3B /* SelectTabBar.swift in Sources */,
 				FD47AAC52148EAF60061CA3B /* TabBarController.swift in Sources */,
 				FD47AA852148E4F60061CA3B /* ItemSwitchCell.swift in Sources */,
-				FD47AB082148EED00061CA3B /* NetConstants.swift in Sources */,
 				FD47AAC32148EAF60061CA3B /* TabBarView.swift in Sources */,
 				FD47AAC72148EB000061CA3B /* ex+Int.swift in Sources */,
 				FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */,
 				FD29A570221BEC390073949C /* JLNetRequest.swift in Sources */,
 				FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */,
+				FD9C82E7221FCDF200595D7D /* NetConstants.swift in Sources */,
 				FD47AA862148E4F60061CA3B /* ImgAndTextView.swift in Sources */,
 				FD47AA9D2148E4F60061CA3B /* NoDataView.swift in Sources */,
 			);

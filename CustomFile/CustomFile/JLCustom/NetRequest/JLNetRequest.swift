@@ -24,9 +24,9 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
             switch requestParams.type! {
             case .post:
                 /// post或者 form表单
-                let header:[String: String] = ["Content-Type":requestParams.isForm ? "application/x-www-form-urlencoded":"application/json"]
+                var header:[String: String] = ["Content-Type":requestParams.isForm ? "application/x-www-form-urlencoded":"application/json"]
                 /// post请求
-                self.toServer(pathkey: pathkey, url: url, params: params, method: .post,encoding:requestParams.isForm ? URLEncoding.default:JSONEncoding.default ,header: header, complete: nil,completelistdata: { listdata in
+                self.toServer(pathkey: pathkey, url: url, params: params, method: .post,encoding:requestParams.isForm ? URLEncoding.default:JSONEncoding.default ,header: &header, complete: nil,completelistdata: { listdata in
                     observer.onNext(listdata)
                     observer.onCompleted()
                 },failed: { (error) in
@@ -34,9 +34,9 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                     observer.onCompleted()
                 })
             case .get:
-
+                var header: [String:String] = [String:String]()
                 /// get请求
-                self.toServer(pathkey: pathkey, url: url, params: params, method: .get, header: nil, complete: nil, completelistdata: { listdata in
+                self.toServer(pathkey: pathkey, url: url, params: params, method: .get, header: &header, complete: nil, completelistdata: { listdata in
                     observer.onNext(listdata)
                     observer.onCompleted()
                 }, failed: { (error) in
@@ -69,9 +69,9 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
             switch requestParams.type! {
             case .post:
                 /// post或者 form表单
-            let header:[String: String] = ["Content-Type":requestParams.isForm ? "application/x-www-form-urlencoded":"application/json"]
+            var header:[String: String] = ["Content-Type":requestParams.isForm ? "application/x-www-form-urlencoded":"application/json"]
             /// post请求
-            self.toServer(pathkey: pathkey, url: url, params: params, method: .post,encoding:requestParams.isForm ? URLEncoding.default:JSONEncoding.default ,header: header, complete: { (data) in
+            self.toServer(pathkey: pathkey, url: url, params: params, method: .post,encoding:requestParams.isForm ? URLEncoding.default:JSONEncoding.default ,header: &header, complete: { (data) in
                 observer.onNext(data)
                 observer.onCompleted()
             }, failed: { (error) in
@@ -79,9 +79,9 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                 observer.onCompleted()
             })
             case .get:
-
+                var header: [String:String] = [String:String]()
             /// get请求
-                self.toServer(pathkey: pathkey, url: url, params: params, method: .get, header: nil, complete: { (data) in
+                self.toServer(pathkey: pathkey, url: url, params: params, method: .get, header: &header, complete: { (data) in
                 observer.onNext(data)
                 observer.onCompleted()
             }, failed: { (error) in
@@ -99,7 +99,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
     }
 
 
-    private class func toServer(pathkey: String?,url: String,params: [String:Any]?,method: HTTPMethod,encoding: ParameterEncoding = URLEncoding.default,header: HTTPHeaders?,complete: ((T)->Void)? = nil,completelistdata: (([T])->Void)? = nil,failed: ((Error)->Void)?) {
+    private class func toServer(pathkey: String?,url: String,params: [String:Any]?,method: HTTPMethod,encoding: ParameterEncoding = URLEncoding.default,header: inout  HTTPHeaders,complete: ((T)->Void)? = nil,completelistdata: (([T])->Void)? = nil,failed: ((Error)->Void)?) {
 
         AlamofireManager.shareInstance().request(URL.init(string: url)!, method: method, parameters: params, encoding: encoding, headers: header).responseJSON { (response) in
             if response.result.isSuccess {
@@ -176,7 +176,7 @@ class JLRxNetRequest<T: BaseBean>: NSObject {
                         failed?()
                     }
                 }
-            case .failure(let _):
+            case .failure:
                 break
             }
         }
