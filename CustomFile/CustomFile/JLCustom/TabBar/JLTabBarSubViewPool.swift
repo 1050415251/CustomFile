@@ -34,7 +34,9 @@ class JLTabBarSubViewPool: NSObject {
             debugPrint(vcpool[identifer]!.count)
             let vc = vcpool[identifer]!.remove(at: 0)
             debugPrint("移除了1个缓存池中个数为：\(vcpool[identifer]!.count)")
+            vc.isHidden = false
             objc_sync_exit(vcpool)
+
             return vc
         }
         if let classtype = registervcpool[identifer],let className = classtype as? JLTabBarSubView.Type {

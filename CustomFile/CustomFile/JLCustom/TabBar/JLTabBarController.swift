@@ -81,19 +81,20 @@ extension JLPageView {
 extension JLPageView: UIScrollViewDelegate {
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        currentindex = Int(self.contentOffset.x/self.frame.width)
         startDraw = scrollView.contentOffset
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         objc_sync_enter(scrollView)
+           currentindex = Int(self.contentOffset.x/self.frame.width)
         handlerDrawDirection(offset: scrollView.contentOffset)
         recoverysubView()
         objc_sync_exit(scrollView)
+        debugPrint(currentindex)
+
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        currentindex = Int(self.contentOffset.x/self.frame.width)
         drawdirection = nil
 
     }
@@ -102,6 +103,12 @@ extension JLPageView: UIScrollViewDelegate {
         if !decelerate {
             debugPrint("减速完成")
         }
+        drawdirection = nil
+
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
     }
 
 
@@ -117,10 +124,10 @@ extension JLPageView: UIScrollViewDelegate {
             if currentindex  >= 0 && currentindex  < maxVCS ?? 0 {
                 var rect: CGRect = CGRect.init(origin: CGPoint.zero, size: self.bounds.size)
 
-                rect.origin = CGPoint.init(x: drawdirection == .right ? CGFloat(currentindex - 1) * self.frame.width:CGFloat(currentindex + 1) * self.frame.width, y: 0)
+                rect.origin = CGPoint.init(x: drawdirection == .right ? CGFloat(currentindex) * self.frame.width:CGFloat(currentindex + 1) * self.frame.width, y: 0)
 
-                if !((currentindex == 0 && drawdirection == .right) || (currentindex == maxVCS - 1 && drawdirection == .left)) {
-                    tabBarSubviewForRowAt(self,(drawdirection == .left || drawdirection == .up) ? currentindex + 1:currentindex - 1).frame = rect
+                if !((currentindex == 0 && drawdirection == .right && self.contentOffset.x <= 0) || (currentindex == maxVCS - 1 && drawdirection == .left)) {
+                    tabBarSubviewForRowAt(self,(drawdirection == .left || drawdirection == .up) ? currentindex + 1:currentindex).frame = rect
                 }
             }
         }
@@ -130,10 +137,11 @@ extension JLPageView: UIScrollViewDelegate {
     private func recoverysubView() {
         //// 把屏幕外面的放入缓存吃
         let vcs = self.subviews.filter { (subv) -> Bool in
-            return (subv.frame.origin.x < CGFloat(currentindex - 1) * self.frame.width || subv.frame.origin.x > CGFloat(currentindex + 1) * self.frame.width) && subv.frame != CGRect.zero
+            return (subv.frame.origin.x < CGFloat(currentindex - 1) * self.frame.width || subv.frame.origin.x > CGFloat(currentindex + 1) * self.frame.width) && !subv.isHidden
         }
         vcs.forEach {
             if let v = $0 as? JLTabBarSubView {
+
                 pools.setJLTabBarSubViewController(identifer: $0.restorationIdentifier, vc: v)
             }
 
