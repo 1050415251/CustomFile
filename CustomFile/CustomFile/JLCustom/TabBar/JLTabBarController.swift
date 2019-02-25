@@ -13,11 +13,7 @@ class JLPageView: UIScrollView {
 
     var vcs: [UIViewController] = []
 
-    var maxVCS: Int! = 1 {
-        didSet {
-            self.contentSize = CGSize.init(width: CGFloat(maxVCS) * self.frame.width, height: self.frame.height)
-        }
-    }
+    var maxVCS: Int! = 1
 
 
     @objc dynamic var currentindex: Int = 0
@@ -32,12 +28,8 @@ class JLPageView: UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.delegate = self
-        self.isPagingEnabled = true
+        setUpUI()
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-            self.setUpUI()
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -49,11 +41,21 @@ class JLPageView: UIScrollView {
 extension JLPageView {
 
     func setUpUI() {
-        let vc = tabBarSubviewForRowAt(self,0)
-        vc.frame = self.bounds
-        reloadData()
+        self.delegate = self
+        self.isPagingEnabled = true
     }
 
+    func reloadData() {
+        self.contentSize = CGSize.init(width: CGFloat(maxVCS) * self.frame.width, height: self.frame.height)
+        self.contentOffset.x = 0
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+            let v = self.tabBarSubviewForRowAt(self,0)
+            v.frame = self.bounds
+        }
+
+
+    }
 
 }
 
@@ -72,10 +74,6 @@ extension JLPageView {
         pools.registerJLTabBarSubViewController(identifer: forVcReuseIdentifier, subvcClass: vcClass)
     }
 
-    func reloadData() {
-        self.contentSize = CGSize.init(width: CGFloat(maxVCS) * self.frame.width, height: self.frame.height)
-
-    }
 
 }
 
@@ -83,25 +81,35 @@ extension JLPageView {
 extension JLPageView: UIScrollViewDelegate {
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        currentindex = Int(self.contentOffset.x/self.frame.width)
         startDraw = scrollView.contentOffset
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
+        objc_sync_enter(scrollView)
         handlerDrawDirection(offset: scrollView.contentOffset)
-
+        recoverysubView()
+        objc_sync_exit(scrollView)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        currentindex = Int(scrollView.contentOffset.x/self.frame.width)
+        currentindex = Int(self.contentOffset.x/self.frame.width)
         drawdirection = nil
+
     }
 
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            debugPrint("减速完成")
+        }
+    }
 
 
     private func handlerDrawDirection(offset: CGPoint) {
         var currentdrawdirection: UISwipeGestureRecognizer.Direction!
         currentdrawdirection = offset.x < startDraw.x ? .right:.left
+
+
 
         if  currentdrawdirection !=  drawdirection {
             drawdirection = currentdrawdirection
@@ -109,11 +117,9 @@ extension JLPageView: UIScrollViewDelegate {
             if currentindex  >= 0 && currentindex  < maxVCS ?? 0 {
                 var rect: CGRect = CGRect.init(origin: CGPoint.zero, size: self.bounds.size)
 
-                drawdirection = offset.x < startDraw.x ? .right:.left
                 rect.origin = CGPoint.init(x: drawdirection == .right ? CGFloat(currentindex - 1) * self.frame.width:CGFloat(currentindex + 1) * self.frame.width, y: 0)
 
                 if !((currentindex == 0 && drawdirection == .right) || (currentindex == maxVCS - 1 && drawdirection == .left)) {
-                    recoverysubView()
                     tabBarSubviewForRowAt(self,(drawdirection == .left || drawdirection == .up) ? currentindex + 1:currentindex - 1).frame = rect
                 }
             }
@@ -124,7 +130,7 @@ extension JLPageView: UIScrollViewDelegate {
     private func recoverysubView() {
         //// 把屏幕外面的放入缓存吃
         let vcs = self.subviews.filter { (subv) -> Bool in
-            (subv.frame.origin.x <= CGFloat(currentindex - 1) * self.frame.width || self.frame.origin.x >= CGFloat(currentindex + 1) * self.frame.width)
+            return (subv.frame.origin.x < CGFloat(currentindex - 1) * self.frame.width || subv.frame.origin.x > CGFloat(currentindex + 1) * self.frame.width) && subv.frame != CGRect.zero
         }
         vcs.forEach {
             if let v = $0 as? JLTabBarSubView {

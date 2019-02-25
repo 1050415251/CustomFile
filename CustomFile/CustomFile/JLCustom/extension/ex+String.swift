@@ -74,7 +74,7 @@ extension String {
 
         CFStringTransform( transformContents, nil, kCFStringTransformStripDiacritics,  false)
 
-        let ztransformContents = transformContents as! String
+        let ztransformContents = transformContents! as String
 
         let index = ztransformContents.startIndex
 

@@ -13,10 +13,10 @@ class JLTabBarSubView: UIView {
 
     var textLab: UILabel!
 
-    var reuseIdentifier: String?
 
     convenience init(frame: CGRect,reuseIdentifier: String?) {
         self.init(frame: frame)
+        self.restorationIdentifier = reuseIdentifier
         
     }
 

@@ -44,13 +44,12 @@ class ViewController: UIViewController {
 //            return cell
 //        }
         let view = JLPageView()
-        view.maxVCS = 9
+        view.maxVCS = 100
         view.backgroundColor = UIColor.lightGray
         view.frame = CGRect.init(x: 0, y: 0, width: 300, height: 500)
         self.view.addSubview(view)
-
+        view.reloadData()
         view.register(JLTabBarSubView.classForCoder(), forVcReuseIdentifier: "JLTabBarSubView")
-
         view.tabBarSubviewForRowAt = { scrollv,index -> JLTabBarSubView in
             let vc = scrollv.dequeueReusableTabBarSubController(identifer: "JLTabBarSubView")
             vc.textLab.text = "第\(index)个"

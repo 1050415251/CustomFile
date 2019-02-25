@@ -29,9 +29,13 @@ class JLTabBarSubViewPool: NSObject {
 
     func getJLTabBarSubViewController(identifer: String) -> JLTabBarSubView {
         objc_sync_enter(vcpool)
-        if var vcs = vcpool[identifer],vcs.count >= 2 {
+        if vcpool[identifer] != nil,vcpool[identifer]!.count > 0 {
+
+            debugPrint(vcpool[identifer]!.count)
+            let vc = vcpool[identifer]!.remove(at: 0)
+            debugPrint("移除了1个缓存池中个数为：\(vcpool[identifer]!.count)")
             objc_sync_exit(vcpool)
-            return vcs.remove(at: 0)
+            return vc
         }
         if let classtype = registervcpool[identifer],let className = classtype as? JLTabBarSubView.Type {
             debugPrint("shilihual")
@@ -49,12 +53,13 @@ class JLTabBarSubViewPool: NSObject {
             return
         }
         objc_sync_enter(vcpool)
+        vc.isHidden = true
         if let _ = vcpool[identy] {
             vcpool[identy]!.append(vc)
         }else {
             vcpool[identy] = [vc]
         }
-        debugPrint(vcpool[identy]!.count)
+        debugPrint("添加了1个缓存池中个数为：\(vcpool[identy]!.count)")
         objc_sync_exit(vcpool)
     }
 
