@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         view.register(JLTabBarSubView.classForCoder(), forVcReuseIdentifier: "JLTabBarSubView")
         view.tabBarSubviewForRowAt = { scrollv,index -> JLTabBarSubView in
             let vc = scrollv.dequeueReusableTabBarSubController(identifer: "JLTabBarSubView")
-            vc.textLab.text = "第\(index)个"
+
             return vc
         }
         

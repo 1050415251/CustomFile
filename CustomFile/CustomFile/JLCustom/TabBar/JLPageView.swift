@@ -11,10 +11,8 @@ import UIKit
 
 class JLPageView: UIScrollView {
 
-    var vcs: [UIViewController] = []
 
     var maxVCS: Int! = 1
-
 
     @objc dynamic var currentindex: Int = 0
     /// j滑动的方向
@@ -61,9 +59,6 @@ extension JLPageView {
     // 利用layoutsubview
     func reloadSubView() {
         let visiblebounds = CGRect.init(x: self.contentOffset.x, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
-
-
-
         for index in 0..<maxVCS {
             let rowRect = CGRect.init(x: CGFloat(index) * self.bounds.size.width, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
             if visiblebounds.intersects(rowRect)  {
@@ -81,7 +76,6 @@ extension JLPageView {
                 cachesubV.removeValue(forKey: "\(index)")
             }
         }
-
     }
 
 }

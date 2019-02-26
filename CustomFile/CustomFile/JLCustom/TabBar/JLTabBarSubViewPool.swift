@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias JLTabBarSubView = UIView
+
 class JLTabBarSubViewPool: NSObject {
 
     private var vcpool: [String:[JLTabBarSubView]]! = [String:[JLTabBarSubView]]()
