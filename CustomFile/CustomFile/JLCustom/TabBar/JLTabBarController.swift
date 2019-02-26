@@ -23,6 +23,8 @@ class JLPageView: UIScrollView {
 
     private var pools:JLTabBarSubViewPool = JLTabBarSubViewPool()
 
+    private var cachesubV: [String: JLTabBarSubView] =  [String: JLTabBarSubView]()
+
 
     var tabBarSubviewForRowAt: ((JLPageView,Int) -> JLTabBarSubView)!
 
@@ -36,12 +38,17 @@ class JLPageView: UIScrollView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func layoutSubviews() {
+        reloadSubView()
+        super.layoutSubviews()
+
+    }
+
 }
 
 extension JLPageView {
 
     func setUpUI() {
-        self.delegate = self
         self.isPagingEnabled = true
     }
 
@@ -49,11 +56,31 @@ extension JLPageView {
         self.contentSize = CGSize.init(width: CGFloat(maxVCS) * self.frame.width, height: self.frame.height)
         self.contentOffset.x = 0
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
-            let v = self.tabBarSubviewForRowAt(self,0)
-            v.frame = self.bounds
-        }
+    }
 
+    // 利用layoutsubview
+    func reloadSubView() {
+        let visiblebounds = CGRect.init(x: self.contentOffset.x, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+
+
+
+        for index in 0..<maxVCS {
+            let rowRect = CGRect.init(x: CGFloat(index) * self.bounds.size.width, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+            if visiblebounds.intersects(rowRect)  {
+                if (self.subviews.filter { (subv) -> Bool in
+                    return subv.frame == rowRect && !subv.isHidden
+                }).count == 0  {
+                    let v = tabBarSubviewForRowAt(self,index)
+                    v.frame = rowRect
+                    cachesubV["\(index)"] = v
+                }
+            }else {
+                if let v = cachesubV["\(index)"] {
+                    pools.setJLTabBarSubViewController(identifer: v.restorationIdentifier, vc: v)
+                }
+                cachesubV.removeValue(forKey: "\(index)")
+            }
+        }
 
     }
 
@@ -77,76 +104,3 @@ extension JLPageView {
 
 }
 
-
-extension JLPageView: UIScrollViewDelegate {
-
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        startDraw = scrollView.contentOffset
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        objc_sync_enter(scrollView)
-           currentindex = Int(self.contentOffset.x/self.frame.width)
-        handlerDrawDirection(offset: scrollView.contentOffset)
-        recoverysubView()
-        objc_sync_exit(scrollView)
-        debugPrint(currentindex)
-
-    }
-
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        drawdirection = nil
-
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            debugPrint("减速完成")
-        }
-        drawdirection = nil
-
-    }
-
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-    }
-
-
-    private func handlerDrawDirection(offset: CGPoint) {
-        var currentdrawdirection: UISwipeGestureRecognizer.Direction!
-        currentdrawdirection = offset.x < startDraw.x ? .right:.left
-
-
-
-        if  currentdrawdirection !=  drawdirection {
-            drawdirection = currentdrawdirection
-
-            if currentindex  >= 0 && currentindex  < maxVCS ?? 0 {
-                var rect: CGRect = CGRect.init(origin: CGPoint.zero, size: self.bounds.size)
-
-                rect.origin = CGPoint.init(x: drawdirection == .right ? CGFloat(currentindex) * self.frame.width:CGFloat(currentindex + 1) * self.frame.width, y: 0)
-
-                if !((currentindex == 0 && drawdirection == .right && self.contentOffset.x <= 0) || (currentindex == maxVCS - 1 && drawdirection == .left)) {
-                    tabBarSubviewForRowAt(self,(drawdirection == .left || drawdirection == .up) ? currentindex + 1:currentindex).frame = rect
-                }
-            }
-        }
-    }
-
-
-    private func recoverysubView() {
-        //// 把屏幕外面的放入缓存吃
-        let vcs = self.subviews.filter { (subv) -> Bool in
-            return (subv.frame.origin.x < CGFloat(currentindex - 1) * self.frame.width || subv.frame.origin.x > CGFloat(currentindex + 1) * self.frame.width) && !subv.isHidden
-        }
-        vcs.forEach {
-            if let v = $0 as? JLTabBarSubView {
-
-                pools.setJLTabBarSubViewController(identifer: $0.restorationIdentifier, vc: v)
-            }
-
-        }
-    }
-
-
-}
