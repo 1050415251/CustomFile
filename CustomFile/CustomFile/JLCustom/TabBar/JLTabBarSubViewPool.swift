@@ -32,20 +32,15 @@ class JLTabBarSubViewPool: NSObject {
     func getJLTabBarSubViewController(identifer: String) -> JLTabBarSubView {
         objc_sync_enter(vcpool)
         if vcpool[identifer] != nil,vcpool[identifer]!.count > 0 {
-
             debugPrint(vcpool[identifer]!.count)
             let vc = vcpool[identifer]!.remove(at: 0)
-            debugPrint("移除了1个缓存池中个数为：\(vcpool[identifer]!.count)")
             vc.isHidden = false
             objc_sync_exit(vcpool)
-
             return vc
         }
         if let classtype = registervcpool[identifer],let className = classtype as? JLTabBarSubView.Type {
-            debugPrint("shilihual")
             let vc = className.init()
             vc.restorationIdentifier = identifer
-            /// 将对象放入缓存池
             return vc
         }
         fatalError("identifer未注册")
@@ -63,7 +58,6 @@ class JLTabBarSubViewPool: NSObject {
         }else {
             vcpool[identy] = [vc]
         }
-        debugPrint("添加了1个缓存池中个数为：\(vcpool[identy]!.count)")
         objc_sync_exit(vcpool)
     }
 

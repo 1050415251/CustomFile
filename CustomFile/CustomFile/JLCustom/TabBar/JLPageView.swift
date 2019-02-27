@@ -24,7 +24,7 @@ class JLPageView: UIScrollView {
     private var cachesubV: [String: JLTabBarSubView] =  [String: JLTabBarSubView]()
 
 
-    var tabBarSubviewForRowAt: ((JLPageView,Int) -> JLTabBarSubView)!
+    var pageSubviewForRowAt: ((JLPageView,Int) -> JLTabBarSubView)!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +41,8 @@ class JLPageView: UIScrollView {
         super.layoutSubviews()
 
     }
+
+    
 
 }
 
@@ -65,7 +67,7 @@ extension JLPageView {
                 if (self.subviews.filter { (subv) -> Bool in
                     return subv.frame == rowRect && !subv.isHidden
                 }).count == 0  {
-                    let v = tabBarSubviewForRowAt(self,index)
+                    let v = pageSubviewForRowAt(self,index)
                     v.frame = rowRect
                     cachesubV["\(index)"] = v
                 }

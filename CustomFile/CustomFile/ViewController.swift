@@ -50,10 +50,10 @@ class ViewController: UIViewController {
         self.view.addSubview(view)
         view.reloadData()
         view.register(JLTabBarSubView.classForCoder(), forVcReuseIdentifier: "JLTabBarSubView")
-        view.tabBarSubviewForRowAt = { scrollv,index -> JLTabBarSubView in
-            let vc = scrollv.dequeueReusableTabBarSubController(identifer: "JLTabBarSubView")
-
-            return vc
+        view.pageSubviewForRowAt = { scrollv,index -> JLTabBarSubView in
+            let v = scrollv.dequeueReusableTabBarSubController(identifer: "JLTabBarSubView")
+            v.backgroundColor = UIColor.red
+            return v
         }
         
 
