@@ -59,6 +59,8 @@
 		FD9C82EE221FD99300595D7D /* JLTabBarSubViewPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */; };
 		FDAF573E2224E755001A86E7 /* JLPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF573D2224E755001A86E7 /* JLPageViewController.swift */; };
 		FDAF57402224E76D001A86E7 /* JLTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF573F2224E76D001A86E7 /* JLTabBarView.swift */; };
+		FDE4A6A7223A5AC8005EEA1D /* ex+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4A6A6223A5AC8005EEA1D /* ex+URL.swift */; };
+		FDE4A6AA223A5B99005EEA1D /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE4A6A9223A5B99005EEA1D /* RealmManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,8 @@
 		FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTabBarSubViewPool.swift; sourceTree = "<group>"; };
 		FDAF573D2224E755001A86E7 /* JLPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLPageViewController.swift; sourceTree = "<group>"; };
 		FDAF573F2224E76D001A86E7 /* JLTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLTabBarView.swift; sourceTree = "<group>"; };
+		FDE4A6A6223A5AC8005EEA1D /* ex+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+URL.swift"; sourceTree = "<group>"; };
+		FDE4A6A9223A5B99005EEA1D /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +355,7 @@
 				FD47AAD02148ECFD0061CA3B /* ex+UIImage.swift */,
 				FD54F5EF2179E92400D54926 /* ex+UIViewController.swift */,
 				FD3DB0FC21EC7B8D000AB128 /* ex+Array.swift */,
+				FDE4A6A6223A5AC8005EEA1D /* ex+URL.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				FD47AADC2148EDBA0061CA3B /* SystemUtils.swift */,
 				FD47AAE02148EDBA0061CA3B /* TimeUtils.swift */,
 				FD47AAE32148EDBB0061CA3B /* UIUtils.swift */,
+				FDE4A6A8223A5B82005EEA1D /* Realm */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -401,6 +407,14 @@
 				FD9C82ED221FD99300595D7D /* JLTabBarSubViewPool.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FDE4A6A8223A5B82005EEA1D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				FDE4A6A9223A5B99005EEA1D /* RealmManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +642,7 @@
 				FD47AAF92148EDBB0061CA3B /* TimeUtils.swift in Sources */,
 				FD9C82EE221FD99300595D7D /* JLTabBarSubViewPool.swift in Sources */,
 				FD47AA912148E4F60061CA3B /* ImportInfoTextField.swift in Sources */,
+				FDE4A6A7223A5AC8005EEA1D /* ex+URL.swift in Sources */,
 				FD47AB042148EDBB0061CA3B /* NetTool.swift in Sources */,
 				FD47AACD2148EC120061CA3B /* ex+UILabel.swift in Sources */,
 				FD47AAF52148EDBB0061CA3B /* SystemUtils.swift in Sources */,
@@ -650,6 +665,7 @@
 				FD47AAC32148EAF60061CA3B /* TabBarView.swift in Sources */,
 				FD47AAC72148EB000061CA3B /* ex+Int.swift in Sources */,
 				FD47AA472148E4620061CA3B /* AppDelegate.swift in Sources */,
+				FDE4A6AA223A5B99005EEA1D /* RealmManager.swift in Sources */,
 				FD29A570221BEC390073949C /* JLNetRequest.swift in Sources */,
 				FD69EA03216F411E00D5EC2F /* MsmLab.swift in Sources */,
 				FD9C82E7221FCDF200595D7D /* NetConstants.swift in Sources */,
